@@ -2,36 +2,35 @@ import { motion } from "framer-motion";
 import SectionTitle from "../components/section-title";
 import { ExternalLinkIcon } from "lucide-react";
 
-const steps = [
-    {
-        id: 1,
-        title: "Start with a prompt",
-        description: "Start with a simple prompt describing what you want your agent to do. Our builder interprets your idea and creates the structure for you in seconds",
-        link: "#!",
-        image: "/assets/workflow1.png",
-    },
-    {
-        id: 2,
-        title: "Adjust and personalize",
-        description: "Adjust tasks, actions and integrations. Add personality, rules and data sources to make the agent work exactly the way you want.",
-        link: "#!",
-        image: "/assets/workflow2.png",
-    },
-    {
-        id: 3,
-        title: "Launch & Automate",
-        description: "Deploy your agent and let it run. It executes tasks autonomously, reports results, and continues working in the background.",
-        link: "#!",
-        image: "/assets/workflow3.png",
-    },
-];
-
 export default function WorkflowSteps() {
+    const steps = [
+        {
+            id: 1,
+            title: "Start with a Dream or Idea",
+            description: "We turn your vision into a modern, fast, and secure app or website that attracts, engages, and converts your audience.",
+            link: "#!",
+            image: "/assets/workflow1.png",
+        },
+        {
+            id: 2,
+            title: "Adjust and Personalize",
+            description: "You have the flexibility to adjust and personalize every detail, ensuring a unique platform that reflects your identity and supports your growth.",
+            link: "#!",
+            image: "/assets/workflow2.png",
+        },
+        {
+            id: 3,
+            title: "Launch & Automate",
+            description: "We help you launch your platform and implement smart automation tools to manage operations, customers, and sales with ease.",
+            link: "#!",
+            image: "/assets/workflow3.png",
+        },
+    ];
     return (
         <section className="mt-32 relative">
             <SectionTitle
-                title="From idea to autonomous agent quickly and effortlessly."
-                description="Empower your business with AI agents that optimize processes and accelerate performance."
+                title="You need more than just a website — you need a complete digital solution"
+                description="We build professional apps and websites for personal brands, businesses, and e-commerce, with features like online payments, user accounts, admin dashboards, and marketing optimization."
             />
 
             <motion.div className="relative space-y-20 md:space-y-30 mt-20"
@@ -68,7 +67,7 @@ export default function WorkflowSteps() {
                             <p className="text-gray-100 text-sm/6 line-clamp-3 pb-2">
                                 {step.description}
                             </p>
-                            <a href={step.link} className="flex items-center gap-2">
+                            <a href="/blog" className="flex items-center gap-2" target="_blank" rel="noopener noreferrer">
                                 Learn More
                                 <ExternalLinkIcon className="size-4" />
                             </a>

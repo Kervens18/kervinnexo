@@ -1,30 +1,44 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function TrustedCompanies() {
-    const logos = [
-        '/assets/company-logo-1.svg',
-        '/assets/company-logo-2.svg',
-        '/assets/company-logo-3.svg',
-        '/assets/company-logo-4.svg',
-        '/assets/company-logo-5.svg',
-        '/assets/company-logo-6.svg', // TikTok Shop
-        '/assets/company-logo-7.svg', // AliExpress
-        '/assets/company-logo-8.svg', // Alibaba
-        '/assets/company-logo-9.svg', // Amazon
-    ]
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        const el = scrollRef.current;
+        let animationId;
+        let start = null;
+        const speed = 60; // pixels per second
+
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            const elapsed = (timestamp - start) / 1000;
+            el.scrollLeft = (elapsed * speed) % (el.scrollWidth / 2);
+            animationId = requestAnimationFrame(step);
+        }
+        animationId = requestAnimationFrame(step);
+        return () => cancelAnimationFrame(animationId);
+    }, []);
 
     return (
-        <motion.section className="mt-14"
-            initial={{ y: 150, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 70, mass: 1 }}
+        <section
+            className="w-full py-6 overflow-hidden"
+            style={{
+                background: "radial-gradient(circle at 60% 40%, #000 0%, #003300 30%, #000 100%)"
+            }}
         >
-            <p className="py-6 mt-14 text-center">Trusting by leading brands, including —</p>
-
-            <div className="flex flex-wrap justify-between max-sm:justify-center gap-10 max-w-4xl w-full mx-auto py-4" id="logo-container">
-                {logos.map((logo, index) => <img key={index} src={logo} alt="logo" className="h-7 w-auto max-w-xs" />)}
+            <div
+                ref={scrollRef}
+                className="whitespace-nowrap overflow-x-scroll no-scrollbar"
+                style={{ scrollBehavior: "auto" }}
+            >
+                <span className="text-3xl font-bold text-white mx-4">
+                    Website Design &amp; Logo✴ Business Branding✴ Mobile Application✴ Website Design &amp; Logo✴ Business Branding✴ Mobile Application✴
+                </span>
             </div>
-        </motion.section>
-    )
+            <style>{`
+                .no-scrollbar::-webkit-scrollbar { display: none !important; }
+                .no-scrollbar { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+            `}</style>
+        </section>
+    );
 }

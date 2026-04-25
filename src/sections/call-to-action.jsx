@@ -1,3 +1,4 @@
+
 import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -15,7 +16,7 @@ export default function CallToAction() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 280, damping: 70, mass: 1 }}
             >
-                Ready to build?
+                Ready to elevate your brand?
             </motion.h2>
             <motion.p className="mt-4 text-sm/7 max-w-md"
                 initial={{ y: 80, opacity: 0 }}
@@ -23,7 +24,7 @@ export default function CallToAction() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 200, damping: 70, mass: 1 }}
             >
-                See how fast you can turn your ideas into reality. Get started for free, no credit card required.
+                Let’s build something extraordinary together. Contact me for a free consultation and let’s turn your vision into reality!
             </motion.p>
             <motion.button className="btn glass transition-none flex items-center gap-2 mt-8"
                 initial={{ y: 80, opacity: 0 }}
@@ -31,9 +32,9 @@ export default function CallToAction() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 280, damping: 70, mass: 1 }}
             >
-                Try now
+                Get in Touch
                 <ArrowRightIcon className="size-4" />
             </motion.button>
         </motion.div>
     );
-};
+}
